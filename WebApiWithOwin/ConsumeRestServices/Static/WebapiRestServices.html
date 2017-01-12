@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>WebAPi</title>
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <button type="button" id="getdata" class="btn btn-primary">Get Employee Name</button>
+    <ul id="employee">
+
+    </ul>
+    <script src="../scripts/jquery-3.1.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        var $httpBaseUrl = "http://localhost:3456/";
+        $(function () {
+            $('#getdata').on("click", function () {
+                $.getJSON($httpBaseUrl + 'api/Employees/GetEmployees', function (contactsJsonPayload) {
+                    $(contactsJsonPayload).each(function (i, item) {
+                        $('#employee').append('<li>' + item.firstName + '</li>');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
