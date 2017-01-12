@@ -22,7 +22,7 @@ namespace OwinSelfhostSample
                 SupportsCredentials = true
             };
 
-            // list of domains that are allowed can be added here
+            // list of domains that are allowed can be added here.
             policy.Origins.Add("http://localhost:17332");
             policy.Origins.Add("http://localhost:21457");
            
